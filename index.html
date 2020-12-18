@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock Paper Scissors!</title>
+</head>
+<body>
+    <script>
+    function computerplay(){
+        var choices = [
+            "Rock", 
+            "Paper", 
+            "Scissors"];
+        var compchoice= choices[Math.floor(Math.random()*choices.length)];
+        return compchoice;
+       console.log(compchoice)
+    }
+    
+
+let playerscore=0;
+let compscore=0;
+let timesrun=0;
+checkwinner();
+    function playRound(playerSelection, computerSelection) {
+        if (playerSelection == "Rock") {
+            if (computerSelection == "Rock"){
+                alert("TIE! Computer chose:" + computerSelection);
+                timesrun = ++timesrun;
+            }else if (computerSelection == "Paper") {
+                alert("Computer Wins!!! Computer chose: " + computerSelection);
+                compscore = ++compscore;
+                timesrun = ++timesrun;
+            } else if (computerSelection == "Scissors"){
+                alert("Player Wins!!! Computer chose: " +computerSelection);
+                playerscore = ++playerscore;
+                timesrun = ++timesrun;
+            }
+        }
+
+        else if (playerSelection == "Paper") {
+            if (computerSelection == "Rock"){
+                alert("Player Wins! Computer chose: " +computerSelection);
+                playerscore = ++playerscore;
+                timesrun = ++timesrun;
+            }else if (computerSelection == "Paper") {
+                alert("TIE! Computer chose:" + computerSelection);               
+                timesrun = ++timesrun;
+            } else if (computerSelection == "Scissors"){
+                alert("Computer Wins!!! Computer chose: " + computerSelection);
+                compscore = ++compscore;
+                timesrun = ++timesrun;
+            }
+        }
+
+        else if (playerSelection == "Scissors") {
+            if (computerSelection == "Rock"){
+                alert("Computer Wins! Computer chose: " + computerSelection);
+                compscore = ++compscore;
+                timesrun = ++timesrun;
+            }else if (computerSelection == "Paper") {
+                alert("Player Wins!! Computer chose: " +computerSelection);
+                playerscore = ++playerscore;
+                timesrun = ++timesrun;
+            } else if (computerSelection == "Scissors"){
+                alert("TIE!!! Computer chose:" + computerSelection);
+                timesrun = ++timesrun;
+            }
+        }
+        console.log("Player score: " + playerscore + " Computer score: "+ compscore + " Timesrun: " + timesrun);
+    checkwinner();
+    }
+
+    if (timesrun >=100) {
+        system.exit(0);
+    }
+    function checkwinner(){
+        playerSelection = prompt("Pick Rock, Paper, or Scissors");
+        const computerSelection = computerplay();
+        console.log(computerSelection);
+        console.log(playerSelection);  
+
+        if (playerscore ==5){
+            alert("Player wins! " + playerscore + " to " + compscore + " Times run: " +timesrun);
+            system.exit(0);
+        }else if (compscore ==5){
+            alert("Computer wins! "+ compscore + " to " +playerscore + " Times run: " + timesrun);
+            system.exit(0);
+        }else if (playerscore != 5 && compscore != 5) {
+            console.log(playRound(playerSelection, computerSelection));
+        }
+    }
+
+
+    </script>
+</body>
+</html>
